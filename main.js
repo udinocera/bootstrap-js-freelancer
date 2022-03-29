@@ -11,29 +11,30 @@ Fate in modo che l’utente abbia diritto ad uno sconti del 25% sul prezzo final
 */
 
 
-let codiciscontiValidi = ["JANJC63", "YHDNU32", "PWKCN25", "SJDPO96", "POCIE24"]
+let codiciAccettati = ["JANJC63", "YHDNU32", "PWKCN25", "SJDPO96", "POCIE24"]
 const sconti = 0.75;   //  25%
 let codicesconti;
 
 
 function submitForm(event){
     event.preventDefault();
-   //Collegamento con HTML
+  
     let sceltaLavoro = document.getElementById("tipodilavoro").value;        //Collegamento con HTML
     
-    let orario = (document.getElementById("oradainserire").value);
+    let orario = (document.getElementById("oradainserire").value);          //Collegamento con HTML
     
     codicesconti = document.getElementById("codicesconto").value;          //Collegamento con HTML
     
-    let flagsconti = checksconti(codicesconti);
-    
+   
     let commissioni = calcolocommissioni(sceltaLavoro);
+
+    let flagsconti = checksconti(codicesconti);
     
     let prezzofinale = calcoloPrezzo(orario, commissioni , flagsconti).toFixed(2);
     
     document.getElementById("prezzoFinale").innerHTML = "Il totale è " + prezzofinale;   //Collegamento con HTML
 }
-
+// LE TRE COMMISSIONI
 function calcolocommissioni(tipoDiLavoro){
     
     let commissioni = 20.5;      //  Se la commissioni riguarda lo sviluppo backend il prezzo orario è di 20.5€ l’ora
@@ -49,4 +50,29 @@ function calcolocommissioni(tipoDiLavoro){
     }
     return(commissioni);
 }
+// CONTROLLARE CODICE ACCETTATI
+function checksconti(codice){
+    
+    let flagsconti = false
+    
+    for(i=0; i < codiciAccettati.length; i++){
+        if(codice == codiciAccettati[i]){
+            flagsconti = true;
+            codiciAccettati.splice(i,1);
+            break
+        }
+    }
+    return(flagsconti);
+}
+    //Parte Finale per calcolare il prezzo
 
+function calcoloPrezzo(ore, commissioni, dirittosconti){
+    let prezzofinale = ore*commissioni;
+    if(dirittosconti){
+        prezzofinale = prezzofinale*sconti;
+        document.getElementById("codicesconto");     //Collegamento con HTML
+    } else {
+        document.getElementById("codicesconto");      //Collegamento con HTML
+    }
+    return(prezzofinale)
+}
