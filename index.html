@@ -100,50 +100,51 @@
     <!-- INIZIO FORM -->
     <div class="container-fluid bg-info">
         <div class="row">
-            <div class="col text-center mt-4 mb-2">
+            <div class="col-12 text-center mt-4 mb-2">
                 <h2>WANT AN OFFER?</h2>
             </div>
+        </div>
         <div class="row">
             <div class="col-10 mx-auto pt-2">
-                 <form class="row g-3">
+                 <form class="row g-3"  onsubmit="submitForm(event)">
              <div class="col-md-6">
-                <label for="firstName" class="form">First name:</label>
+                <label for="firstName" class="form-label">First name:</label>
                 <input type="text" class="form-control" id="firstName">
                 </div>
             <div class="col-md-6">
-                <label for="lastName" class="form">Last name:</label>
+                <label for="lastName" class="form-label">Last name:</label>
                 <input type="text" class="form-control" id="lastName">
                  </div>
             <div class="col-md-6">
-                <label for="emailUtente" class="form">Email address:</label>
+                <label for="emailUtente" class="form-label">Email address:</label>
                 <input type="email" class="form-control" id="emailUtente">
                 </div>
             <div class="col-md-6">
-                <label for="hoursRequest" class="form">Hours requested:</label>
-                <input type="number" class="form-control" id="hoursRequest">
+                <label for="oradainserire" class="form-label">Hours requested:</label>
+                <input type="number" class="form-control" id="oradainserire">
                 </div>
              <div class="col-md-6">
-                <label for="typeOfWork" class="form">Type of work:</label>
-                <select class="form-select" id="typeOfwork">
-                <option value="back">Backend Development</option>
-                <option value="front">Frontend Development</option>
-                <option value="project">Project Analisys</option>
+                <label for="tipodilavoro" class="form-label">Type of work:</label>
+                <select class="form-select" id="tipodilavoro">
+                <option value="backend">Backend Development</option>
+                <option value="frontend">Frontend Development</option>
+                <option value="projectAnalisys">Project Analisys</option>
                 </select>
-                </div>
+            </div>
             <div class="col-md-6">
-                <label for="discountCode" class="form">Discount Code:</label>
-                <input type="text" class="form-control" id="discountCode">
+                <label for="codicesconto" class="form-label">Discount Code:</label>
+                <input type="text" class="form-control" id="codicesconto">
                 </div>
             <div class="col-12">
-                <label for="message" class="form">Message:</label>
+                <label for="message" class="form-label">Message:</label>
                 <textarea class="form-control" id="message"></textarea>
                 </div>
-            <div class="col-12 text-center">
-                <button type="submit" class="btn bg-warning">Send</button>
-                </div>
-            <div class="col-12">
-                <h3 id="prezzo"></h3>
-                </div>
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-warning">Send</button>
+                  </div>
+                  <div class="col-12">
+                      <p id="prezzoFinale" class="fs-3 mb-5"></p>
+                  </div>
         </form>
         </div>
      </div>
